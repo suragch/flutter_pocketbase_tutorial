@@ -1,16 +1,13 @@
-# flutter_pocketbase_tutorial
+# Flutter PocketBase Tutorial
 
-A new Flutter project.
+This is a supplemental repository for the Flutter PocketBase Tutorial on Medium.
 
-## Getting Started
+## Updating the platform folders
 
-This project is a starting point for a Flutter application.
+If the platform you are running on is not working, try deleting the platform folder and then running `flutter create.` again. However, after doing so, you'll need to make the following platform specific changes:
 
-A few resources to get you started if this is your first Flutter project:
+### macOS
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Allow internet permission.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- https://stackoverflow.com/questions/61196860/how-to-enable-flutter-internet-permission-for-macos-desktop-app
