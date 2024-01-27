@@ -7,12 +7,19 @@ class HomePageManager {
 
   Future<void> signUp() async {
     final body = <String, dynamic>{
-      "username": "Mary",
-      "email": "mary@example.com",
+      "username": "Bob",
+      "email": "bob@example.com",
       "password": "12345678",
       "passwordConfirm": "12345678",
-      "name": "Mary Smith"
+      "name": "Bob Smith"
     };
+    // final body = <String, dynamic>{
+    //   "username": "Mary",
+    //   "email": "mary@example.com",
+    //   "password": "12345678",
+    //   "passwordConfirm": "12345678",
+    //   "name": "Mary Smith"
+    // };
 
     final record = await pb.collection('users').create(body: body);
     print(record);
@@ -21,7 +28,10 @@ class HomePageManager {
   Future<void> signIn() async {
     final authData = await pb
         .collection('users')
-        .authWithPassword('mary@example.com', '12345678');
+        .authWithPassword('bob@example.com', '12345678');
+    // final authData = await pb
+    //     .collection('users')
+    //     .authWithPassword('mary@example.com', '12345678');
     print(authData);
 
     statusNotifier.value = (pb.authStore.isValid) ? 'Logged in' : 'Logged out';
