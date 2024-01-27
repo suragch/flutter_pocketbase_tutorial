@@ -1,6 +1,6 @@
 # Flutter PocketBase Tutorial
 
-This is a supplemental repository for the Flutter PocketBase Tutorial on Medium.
+This is a supplemental repository for the [Flutter PocketBase Tutorial](https://suragch.medium.com/a-pocketbase-backend-for-flutter-and-dart-c962bea4e3f1) on Medium.
 
 ## Updating the platform folders
 
