@@ -31,6 +31,7 @@ class _PocketBaseDemoState extends State<PocketBaseDemo> {
                 const SizedBox(height: 32),
                 TaskButton(title: 'Sign up', onPressed: manager.signUp),
                 TaskButton(title: 'Sign in', onPressed: manager.signIn),
+                TaskButton(title: 'Refresh token', onPressed: manager.refresh),
                 TaskButton(title: 'Sign out', onPressed: manager.signOut),
                 const SizedBox(height: 32),
                 TaskButton(title: 'Create', onPressed: manager.create),
