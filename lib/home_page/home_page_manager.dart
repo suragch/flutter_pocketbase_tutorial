@@ -1,9 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class HomePageManager {
   final statusNotifier = ValueNotifier('Logged out');
-  final pb = PocketBase('http://127.0.0.1:8090/');
+  late final pb = PocketBase('http://${_getHost()}:8090/');
+
+  String _getHost() {
+    return (Platform.isAndroid) ? '10.0.2.2' : '127.0.0.1';
+  }
 
   Future<void> signUp() async {
     final body = <String, dynamic>{
