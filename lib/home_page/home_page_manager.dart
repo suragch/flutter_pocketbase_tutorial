@@ -1,15 +1,39 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_pocketbase_tutorial/local_storage/local_storage.dart';
+import 'package:flutter_pocketbase_tutorial/local_storage/service_locator.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class HomePageManager {
   final statusNotifier = ValueNotifier('Logged out');
-  late final pb = PocketBase('http://${_getHost()}:8090/');
+  late final PocketBase pb;
 
-  String _getHost() {
-    return (Platform.isAndroid) ? '10.0.2.2' : '127.0.0.1';
+  Future<void> init() async {
+    final storage = getIt<LocalStorage>();
+    final token = await storage.getToken();
+
+    final customAuthStore = AsyncAuthStore(
+      initial: token,
+      save: storage.setToken,
+      clear: storage.deleteToken,
+    );
+
+    pb = PocketBase(
+      'http://$_host:8090/',
+      authStore: customAuthStore,
+    );
+
+    if (pb.authStore.isValid) {
+      statusNotifier.value = 'Logged in';
+      final authRecord = await pb.collection('users').authRefresh();
+      print(authRecord);
+    } else {
+      statusNotifier.value = 'Logged out';
+    }
   }
+
+  String get _host => (Platform.isAndroid) ? '10.0.2.2' : '127.0.0.1';
 
   Future<void> signUp() async {
     final body = <String, dynamic>{
@@ -50,7 +74,6 @@ class HomePageManager {
     }
     final authData = await pb.collection('users').authRefresh();
     print(authData);
-    // TODO: Save pb.authStore.token to secure storage
   }
 
   Future<void> signOut() async {

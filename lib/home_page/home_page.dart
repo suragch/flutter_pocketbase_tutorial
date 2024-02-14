@@ -12,6 +12,12 @@ class _PocketBaseDemoState extends State<PocketBaseDemo> {
   final manager = HomePageManager();
 
   @override
+  void initState() {
+    super.initState();
+    manager.init();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,

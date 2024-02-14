@@ -1,7 +1,7 @@
 name: flutter_pocketbase_tutorial
 description: "Flutter Pocketbase Tutorial"
 publish_to: 'none' 
-version: 1.0.1+2
+version: 1.1.0+3
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   pocketbase: ^0.18.0
+  get_it: ^7.6.7
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
