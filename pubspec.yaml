@@ -1,7 +1,7 @@
 name: flutter_pocketbase_tutorial
 description: "Flutter Pocketbase Tutorial"
 publish_to: 'none' 
-version: 1.1.1+4
+version: 1.1.2+5
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
