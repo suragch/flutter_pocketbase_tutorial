@@ -4,7 +4,9 @@ This is a supplemental repository for the [Flutter PocketBase Tutorial](https://
 
 ## Updating the platform folders
 
-If the platform you are running on is not working, try deleting the platform folder and then running `flutter create.` again. However, after doing so, you'll need to make the following platform specific changes:
+If the platform you are running on is not working, try deleting the platform folder and then running `flutter create .` again. Also delete `pubspec.lock` and run `flutter pub get` again. 
+
+Note that after deleting the platform folders, you'll need to make the following platform specific changes:
 
 ### macOS
 
