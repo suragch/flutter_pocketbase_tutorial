@@ -22,29 +22,31 @@ class _PocketBaseDemoState extends State<PocketBaseDemo> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SizedBox(
-          width: double.infinity,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 32),
-                ValueListenableBuilder<String>(
-                    valueListenable: manager.statusNotifier,
-                    builder: (context, status, child) {
-                      return Text('Status: $status');
-                    }),
-                const SizedBox(height: 32),
-                TaskButton(title: 'Sign up', onPressed: manager.signUp),
-                TaskButton(title: 'Sign in', onPressed: manager.signIn),
-                TaskButton(title: 'Refresh token', onPressed: manager.refresh),
-                TaskButton(title: 'Sign out', onPressed: manager.signOut),
-                const SizedBox(height: 32),
-                TaskButton(title: 'Create', onPressed: manager.create),
-                TaskButton(title: 'Read', onPressed: manager.read),
-                TaskButton(title: 'Update', onPressed: manager.update),
-                TaskButton(title: 'Delete', onPressed: manager.delete),
-              ],
+        body: SafeArea(
+          child: SizedBox(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 32),
+                  ValueListenableBuilder<String>(
+                      valueListenable: manager.statusNotifier,
+                      builder: (context, status, child) {
+                        return Text('Status: $status');
+                      }),
+                  const SizedBox(height: 32),
+                  TaskButton(title: 'Sign up', onPressed: manager.signUp),
+                  TaskButton(title: 'Sign in', onPressed: manager.signIn),
+                  TaskButton(title: 'Refresh token', onPressed: manager.refresh),
+                  TaskButton(title: 'Sign out', onPressed: manager.signOut),
+                  const SizedBox(height: 32),
+                  TaskButton(title: 'Create', onPressed: manager.create),
+                  TaskButton(title: 'Read', onPressed: manager.read),
+                  TaskButton(title: 'Update', onPressed: manager.update),
+                  TaskButton(title: 'Delete', onPressed: manager.delete),
+                ],
+              ),
             ),
           ),
         ),
